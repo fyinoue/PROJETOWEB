@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formulário</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <fieldset>
+        <legend align="center">Funcionário</legend>
+        <form name="frm1" method="POST" action="dados.php">
+            <table border="1" align="center">
+                <tr>
+                    <td>Nome:</td>
+                    <td>
+                        <input type="text" name="txNome" id="txNome" size="20" maxlength="50"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Endereço:</td>
+                    <td>
+                        <input type="text" name="txEnder" id="txEnder" size="20" maxlength="50"/>
+                    </td>
+                </tr>   
+                <tr>
+                    <td>Sexo:</td>
+                    <td>
+                        <input type="radio" name="txSexo" id="txSexoM" value="m"/>Masculino
+                        <br>
+                        <input type="radio" name="txSexo" id="txSexoF" value="f"/>Feminino
+                    </td>
+                </tr>
+                <tr>
+                    <td>Turno:</td>
+                    <td>
+                        <input type="checkbox" name="txTurno[]" id="txTurnoM" value="m"/>Manhã
+                        <br>
+                        <input type="checkbox" name="txTurno[]" id="txTurnoT" value="t"/>Tarde
+                        <br>
+                        <input type="checkbox" name="txTurno[]" id="txTurnoN" value="n"/>Noite
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cargo:</td>
+                    <td>
+                        <select name="txCargo" id="txCargo">
+                            <option value="">Selecione</option>
+                            <option value="assistente">Assistente</option>
+                            <option value="ajudante">Ajudante</option>
+                            <option value="supervisor">Supervisor</option>
+                            <option value="gerente">Gerente</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" name="acao" value="Salvar" onclick="return validaCampos();"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        </fieldset>
+    </body>
+</html>
+<script type="text/javascript">
+    function validaCampos(){
+        var sexoM = document.getElementById("txSexoM").checked;
+        var sexoF = document.getElementById("txSexoF").checked;
+        
+        var turnoM = document.getElementById("txTurnoM").checked;
+        var turnoT = document.getElementById("txTurnoT").checked;
+        var turnoN = document.getElementById("txTurnoN").checked;
+        
+        if(document.getElementById("txNome").value==""){
+            alert("O campo NOME é obrigatório!");
+            document.getElementById("txNome").focus();
+            return false;
+        }
+        if(document.getElementById("txEnder").value==""){
+            alert("O campo ENDEREÇO é obrigatório!");
+            return false;
+        }
+        if(sexoM==false && sexoF==false){
+            alert("O campo SEXO é obrigatório!")
+            return false;
+        }
+        if(turnoM==false && turnoT==false && turnoN==false){
+            alert("O campo TURNO é obrigatório!");
+            return false;
+        }
+        if(document.getElementById("txCargo").value==""){
+            alert("O campo CARGO é obrigatório!");
+            return false;
+        }
+        return true;
+    }
+</script>
