@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Formulário</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <script src="js/script.js"></script>
+        <style>
+            .jumbotron {
+                width: 500px;
+                margin: 0 auto;
+                margin-top: 20px;
+            }
+            
+            .form-control {
+                margin: 10px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <form class="jumbotron" method="POST" action="action.php">
+            <h1 class="text-center">Pousada</h1>
+            <input class="form-control" type="text" name="nome" id="nome" placeholder="Nome" />
+            <input class="form-control" type="text" name="origem" id="origem" placeholder="Cidade de Origem" />
+            <select class="form-control" name="sexo" id="sexo">
+                <option value="">Sexo</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminimo</option>
+            </select>
+            <select class="form-control" name="quarto" id="quarto">
+                <option value="">Tipo de Quarto</option>
+                <option value="Solteiro">Solteiro</option>
+                <option value="Casado">Casado</option>
+            </select>
+            <input class="form-control" type="text" name="dias" id="dias" placeholder="Quantidade de Dias de Hospedagem" />
+            <input class="form-control" type="text" name="frigobar" id="frigobar" placeholder="Valor consumido no Frigobar" />
+            <button class="btn btn-block btn-primary" type="submit" onclick="return testaCampos();">Enviar</button>
+        </form>
+    </body>
+</html>
